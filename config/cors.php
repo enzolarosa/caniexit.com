@@ -17,7 +17,12 @@ return [
 
     'paths' => ['api/*'],
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => [
+        'GET',
+        'POST',
+        'PUT',
+        'OPTIONS',
+    ],
 
     'allowed_origins' => ['*'],
 
