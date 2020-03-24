@@ -20,6 +20,7 @@ class CountriesSeeder extends Seeder
                 'source' => [
                     'region' => 'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni-latest.json',
                     'province' => 'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-province-latest.json',
+                //    'tracking' => 'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-andamento-nazionale.json',
                 ],
                 'mapping' => [
                     'region' => [

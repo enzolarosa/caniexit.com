@@ -1,88 +1,60 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129313629-4"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129313629-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-            gtag('config', 'UA-129313629-4');
-        </script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        gtag('js', new Date());
 
-        <meta name="Description" content="can I exit from home? ">
-        <meta name="Keywords" content="can i exit, can exit, i exit, i can exit, coronavirus, exit, corona, virus">
+        gtag('config', 'UA-129313629-4');
+    </script>
 
-        <title>Can I Exit?</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <meta name="description" content="can I exit from home? ">
+    <meta name="keywords"
+          content="can i exit, can exit, i exit, i can exit, coronavirus, exit, corona, virus, can i get out, can i out, i get out, get out">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <title>Can I Get Out?</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                    No, you can not exit!
-                </div>
-            </div>
+</head>
+<body>
+<div class="flex-center position-ref full-height">
+    <div class="content">
+        <div class="title m-b-md">
+            No, you can not exit!
         </div>
-    </body>
+    </div>
+    @if(isset($data) && isset($keys))
+        <table class="table-auto">
+            <thead>
+            <tr>
+                @foreach($keys as $key)
+                    <th class="px-4 py-2">{{$key}}</th>
+                @endforeach
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($data as $k=>$d)
+                <tr>
+                    @foreach($keys as $key)
+                        <td class="border px-4 py-2">{{$d[$key]}}</td>
+                    @endforeach
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    @endif
+</div>
+</body>
 </html>
